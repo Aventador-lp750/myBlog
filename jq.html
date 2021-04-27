@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery</title>
+</head>
+<script src="jquery/jquery.min.js"></script>
+<body>
+<form id="myform" action="www.baidu.com" method="post">
+    <p>
+        name:<input type="text" id="name">
+    </p>
+    <p>
+        password:<input type="text" id="password">
+    </p>
+    <p>
+        <input type="submit" value="submit" id="btn">
+    </p>
+</form>
+<form>
+    <h3>全选功能</h3>
+    你的爱好：
+    <input type="checkbox" value="sing" class="hobby">sing
+    <input type="checkbox" value="write" class="hobby">write
+    <input type="checkbox" value="code" class="hobby">code<br>
+    <input type="checkbox" value="all" id="checkAll">All
+</form>
+</body>
+<script>
+    // $("#btn").click(function (){
+    //     var name = $('#name').val();
+    //     if(name == ""){
+    //         alert("请输入用户名！！！");
+    //     }
+    // });
+    $('#myform').submit(function (){
+        var name = $('#name').val();
+        if(name == ""){
+            alert("请输入用户名！！！");
+            return false;
+        }
+        return true;
+    });
+    var flag = false;
+    $('#checkAll').click(function (){
+        // console.log(Math.random());
+
+        if(flag == true){
+            $('.hobby').prop("checked",false);
+            flag = false;
+        }else{
+            $('.hobby').prop("checked",true);
+            flag = true;
+        }
+    });
+</script>
+</html>
